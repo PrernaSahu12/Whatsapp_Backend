@@ -1,6 +1,6 @@
 const dotenv = require("dotenv")
 require("dotenv").config();
-const app = require("./app")
+const app = require("./src/app")
 const http = require("http")
 const {Server} = require("socket.io")
 const connectDB = require("./config/db")
