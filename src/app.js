@@ -1,27 +1,15 @@
-const express = require("express")
-const cors = require("cors");
-const authRoutes = require("./routes/authRoutes")
-const cookieParser = require("cookie-parser")
-const userRoutes = require("./routes/userRoutes");
+const http = require('http');
+const app = require('./src/app');
 
+const port = process.env.PORT || 3000;
 
-const app = express()
+const server = http.createServer(app);
 
-app.use(cors({
-    origin: "http://localhost:5173", 
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, 
-}));
-app.use(express.json())
+server.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
 
-app.use(cookieParser());
-
-app.use("/api/auth", authRoutes)
-app.use("/api/users", userRoutes);
-
-app.get("/",(req,res)=>{
-    res.send("WhatsApp clone backend running")
-})
-
-
-module.exports = app;
+server.on('error', (err) => {
+  console.error('Server error:', err);
+  process.exit(1);
+});
