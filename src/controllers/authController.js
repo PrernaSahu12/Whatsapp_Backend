@@ -1,7 +1,7 @@
 const redis = require("../config/redisClient");
 // Logout controller: blacklist token in Redis
 
-const User = require("../model/models");
+const User = require("../models/models");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 

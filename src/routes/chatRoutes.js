@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const authMiddleware = require("../middleware/authMiddleware");
-const Chat = require("../model/chatModel");
-const User = require("../model/models");
+const Chat = require("../models/chatModel");
+const User = require("../models/models");
 
 // Create or fetch one-on-one chat
 router.post("/", authMiddleware, async (req, res) => {
