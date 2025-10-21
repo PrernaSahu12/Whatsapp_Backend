@@ -1,6 +1,4 @@
-#!/usr/bin/env node
 const http = require('http');
-// try to load the express app from src/app.js
 let app;
 try {
   app = require('./src/app');
