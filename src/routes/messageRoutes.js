@@ -1,9 +1,10 @@
-
 const express = require("express");
 const router = express.Router();
-const authMiddleware = require("../middleware/authMiddleware");
-const Message = require("../models/messageModel");
-const Chat = require("../models/chatModel");
+const path = require("path");
+
+const authMiddleware = require(path.join(__dirname, "../middleware/authMiddleware"));
+const Message = require(path.join(__dirname, "../models/messageModel"));
+const Chat = require(path.join(__dirname, "../models/chatModel"));
 
 // Send message
 router.post("/", authMiddleware, async (req, res) => {
